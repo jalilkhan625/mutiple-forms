@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table with DataTables Plugin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <button class="add-btn" onclick="openSlider()" style="margin-left: 1200px;">Add New</button>
+    <table id="data-table" class="display">
+        <thead>
+            <tr>
+                <th>hsid</th>
+                <th>hsidRegistrazione</th>
+                <th>tipoRegistrazione</th>
+                <th>hsidTipoDocumento</th>
+                <th>aslNascita</th>
+                <th>Data Comunicazione</th>
+                <th>Data Pagamento</th>
+                <th>Modello 2A Data Comunicazione</th>
+                <th>Modello 2A Data Pagamento</th>
+                <th>Modello 2A ASL Nascita</th>
+                <th>Modello 2A Altro</th>
+                <th>Modello 2A Altro Nota</th>
+                <th>Modello 2A ASL Identificazione</th>
+                <th>Modello 2A Busta Non Sigillata</th>
+                <th>Modello 2A Campione Crine</th>
+                <th>Modello 2A Data Invio</th>
+                <th>Modello 2A Modulo Incompleto</th>
+                <th>Modello 2D Data Comunicazione</th>
+                <th>Modello 2D Data Pagamento</th>
+                <th>Modello 2C Data Comunicazione</th>
+                <th>Modello 2C Data Pagamento</th>
+                <th>Modello 2B Altro</th>
+                <th>Modello 2B Altro Nota</th>
+                <th>Modello 2B ASL Identificazione</th>
+                <th>Modello 2B Busta Non Sigillata</th>
+                <th>Modello 2B Campione Crine</th>
+                <th>Modello 2B Data Comunicazione</th>
+                <th>Modello 2B Data Invio</th>
+                <th>Modello 2B Data Pagamento</th>
+                <th>Modello 2B Modulo Incompleto</th>
+                <th>Modello CIF Dupplicato Autenticato</th>
+                <th>Modello CIF Fotocopia</th>
+                <th>Modello CIF Numero</th>
+                <th>Modello CIF Originale</th>
+                <th>Modello Coupon Numero</th>
+                <th>Modello Coupon Originale</th>
+                <th>Modello Coupon Fotocopia</th>
+                <th>Modello Coupon Dupplicato Autenticato</th>
+                <th>Modello Accertamento Parentela (Nato Italia)</th>
+                <th>Modello Foto</th>
+                <th>Modello Embryo Transfer</th>
+                <th>Modello 30</th>
+                <th>Modello 30F</th>
+                <th>Modello Diritti Allevatoriali</th>
+                <th>Modello Export Certificate</th>
+                <th>Modello 9B</th>
+                <th>Modello DNA</th>
+                <th>Modello Accertamento Parentela (Importato)</th>
+                <th>Modello Passaporto Estero</th>
+                <th>Modello Provenienza</th>
+                <th>Modello Pedigree</th>
+                <th>Modello Morte</th>
+                <th>Modello CIE</th>
+                <th>Modello CIEF</th>
+                <th>Modello Breeding Card</th>
+                <th>Actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data rows will be inserted here -->
+        </tbody>
+    </table>
+    
+        
+        <tbody>
+            <!-- Data rows will be inserted here -->
+        </tbody>
+    </table>
+<!-- Sliding Div -->
+ <!-- Sliding Div -->
+ <div id="slidingDiv" class="sliding-div">
+    <span class="close-icon" onclick="toggleSlidingDiv()">&times;</span>
+    
+    <!-- Section 1: Basic Document Information -->
+    <div class="mb-4">
+        <h4>General Information</h4>
+        <div class="section-content">
+            <form id="documentInfoForm1">
+                <div class="mb-3">
+                    <input type="hidden" class="form-control" id="documentHSID">
+                </div>
+                <div class="mb-3">
+                    <label for="hsidRegistrazione" class="form-label">HSID Registrazione</label>
+                    <input type="text" class="form-control" id="hsidRegistrazione">
+                </div>
+                <div class="mb-3">
+                    <label for="hsidTipoRegistrazione" class="form-label">HSID Tipo Registrazione</label>
+                    <input type="text" class="form-control" id="hsidTipoRegistrazione">
+                </div>
+                <div class="mb-3">
+                    <label for="hsidTipoDocumento" class="form-label">HSID Tipo Documento</label>
+                    <input type="text" class="form-control" id="hsidTipoDocumento">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 2: Modello 2A Details -->
+    <div class="mb-4">
+        <h4>Modello 2A</h4>
+        <div class="section-content">
+            <form id="documentInfoForm2">
+                <!-- Existing Fields -->
+                <div class="mb-3">
+                    <label for="modello_2A_dataComunicazione" class="form-label">Data Comunicazione</label>
+                    <input type="date" class="form-control" id="modello_2A_dataComunicazione">
+                </div>
+                <div class="mb-3">
+                    <label for="modello_2A_dataPagamento" class="form-label">Data Pagamento</label>
+                    <input type="date" class="form-control" id="modello_2A_dataPagamento">
+                </div>
+                <div class="mb-3">
+                    <label for="modello_2A_aslNascita" class="form-label">ASL Nascita</label>
+                    <input type="text" class="form-control" id="modello_2A_aslNascita">
+                </div>
+                
+                <!-- New Fields -->
+                <div class="mb-3">
+                    <label for="modello_2A_altro" class="form-label">Altro</label>
+                    <input type="checkbox" class="form-check-input" id="modello_2A_altro">
+                </div>
+                <div class="mb-3">
+                    <label for="modello_2A_altroNota" class="form-label">Altro Nota</label>
+                    <input type="text" class="form-control" id="modello_2A_altroNota" value="">
+                </div>
+                <div class="mb-3">
+                    <label for="modello_2A_aslIdentificazione" class="form-label">ASL Identificazione</label>
+                    <input type="text" class="form-control" id="modello_2A_aslIdentificazione">
+                </div>
+                <div class="mb-3">
+                    <label for="modello_2A_bustaNonSigillata" class="form-label">Busta Non Sigillata</label>
+                    <input type="checkbox" class="form-check-input" id="modello_2A_bustaNonSigillata">
+                </div>
+                <div class="mb-3">
+                    <label for="modello_2A_campioneCrine" class="form-label">Campione Crine</label>
+                    <input type="checkbox" class="form-check-input" id="modello_2A_campioneCrine">
+                </div>
+                <div class="mb-3">
+                    <label for="modello_2A_dataInvio" class="form-label">Data Invio</label>
+                    <input type="datetime-local" class="form-control" id="modello_2A_dataInvio">
+                </div>
+                <div class="mb-3">
+                    <label for="modello_2A_moduloIncompleto" class="form-label">Modulo Incompleto</label>
+                    <input type="checkbox" class="form-check-input" id="modello_2A_moduloIncompleto">
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <hr>
+
+    <!-- Section 3: Modello 2D -->
+    <div class="mb-4">
+        <h4>Modello 2D</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_2D_dataComunicazione" class="form-label">Data Comunicazione</label>
+                    <input type="date" class="form-control" id="modello_2D_dataComunicazione" placeholder="yyyy-mm-dd">
+                </div>
+                <div class="mb-3">
+                    <label for="modello_2D_dataPagamento" class="form-label">Data Pagamento</label>
+                    <input type="date" class="form-control" id="modello_2D_dataPagamento" placeholder="yyyy-mm-dd">
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    
+
+    <hr>
+
+    <!-- Section 4: Modello 2C -->
+    <div class="mb-4">
+        <h4>Modello 2C</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="modello_2C_dataComunicazione" class="form-label">Data Comunicazione</label>
+                        <input type="datetime-local" class="form-control" id="modello_2C_dataComunicazione">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modello_2C_dataPagamento" class="form-label">Data Pagamento</label>
+                        <input type="datetime-local" class="form-control" id="modello_2C_dataPagamento">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 5: Modello 2B -->
+    <div class="mb-4">
+        <h4>Modello 2B</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="altro" class="form-label">Altro</label>
+                    <input type="checkbox" class="form-check-input" id="altro_2B" name="altro">
+                </div>
+                <div class="mb-3">
+                    <label for="altroNota" class="form-label">Altro Nota</label>
+                    <input type="text" class="form-control" id="altroNota_2B" name="altroNota">
+                </div>
+                <div class="mb-3">
+                    <label for="aslIdentificazione" class="form-label">ASL Identificazione</label>
+                    <input type="text" class="form-control" id="aslIdentificazione_2B" name="aslIdentificazione">
+                </div>
+                <div class="mb-3">
+                    <label for="bustaNonSigillata" class="form-label">Busta Non Sigillata</label>
+                    <input type="checkbox" class="form-check-input" id="bustaNonSigillata_2B" name="bustaNonSigillata">
+                </div>
+                <div class="mb-3">
+                    <label for="campioneCrine" class="form-label">Campione Crine</label>
+                    <input type="checkbox" class="form-check-input" id="campioneCrine_2B" name="campioneCrine">
+                </div>
+                <div class="mb-3">
+                    <label for="dataComunicazione" class="form-label">Data Comunicazione</label>
+                    <input type="date" class="form-control" id="dataComunicazione_2B" name="dataComunicazione">
+                </div>
+                <div class="mb-3">
+                    <label for="dataInvio" class="form-label">Data Invio</label>
+                    <input type="date" class="form-control" id="dataInvio_2B" name="dataInvio">
+                </div>
+                <div class="mb-3">
+                    <label for="dataPagamento" class="form-label">Data Pagamento</label>
+                    <input type="date" class="form-control" id="dataPagamento_2B" name="dataPagamento">
+                </div>
+                <div class="mb-3">
+                    <label for="moduloIncompleto" class="form-label">Modulo Incompleto</label>
+                    <input type="checkbox" class="form-check-input" id="moduloIncompleto_2B" name="moduloIncompleto">
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <hr>
+
+    <!-- Section 6: Modello CIF -->
+    <div class="mb-4">
+        <h4>Modello CIF</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <!-- Existing field -->
+                <!-- New fields -->
+                <div class="mb-3">
+                    <label for="dupplicatoAutenticato" class="form-label">Dupplicato Autenticato</label>
+                    <input type="checkbox" class="form-check-input" id="dupplicatoAutenticato_CIF">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="fotocopia" class="form-label">Fotocopia</label>
+                    <input type="checkbox" class="form-check-input" id="fotocopia_CIF">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="numero" class="form-label">Numero</label>
+                    <input type="text" class="form-control" id="numero_CIF">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="originale" class="form-label">Originale</label>
+                    <input type="checkbox" class="form-check-input" id="originale_CIF">
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <hr>
+
+    <!-- Section 7: Modello Coupon -->
+    <div class="mb-4">
+        <h4>Modello Coupon</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="numero" class="form-label">Numero</label>
+                    <input type="text" class="form-control" id="numero_Coupon">
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="originale_coupon">
+                    <label for="originale" class="form-check-label">Originale</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="fotocopia_coupon">
+                    <label for="fotocopia" class="form-check-label">Fotocopia</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="dupplicatoAutenticato_coupon">
+                    <label for="dupplicatoAutenticato" class="form-check-label">Dupplicato Autenticato</label>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <hr>
+
+    <!-- Section 8: Modello Accertamento Parentela Nato Italia -->
+    <div class="mb-4">
+        <h4>Modello Accertamento Parentela Nato Italia</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_AccertamentoParentela_NatoItalia" class="form-label">Modello Accertamento Parentela Nato Italia</label>
+                    <input type="text" class="form-control" id="modello_AccertamentoParentela_NatoItalia">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 9: Modello Foto -->
+    <div class="mb-4">
+        <h4>Modello Foto</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_Foto" class="form-label">Modello Foto</label>
+                    <input type="text" class="form-control" id="modello_Foto">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 10: Modello Embryo Transfer -->
+    <div class="mb-4">
+        <h4>Modello Embryo Transfer</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_EmbryoTransfer" class="form-label">Modello Embryo Transfer</label>
+                    <input type="text" class="form-control" id="modello_EmbryoTransfer">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 11: Modello 30 -->
+    <div class="mb-4">
+        <h4>Modello 30</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_30" class="form-label">Modello 30</label>
+                    <input type="text" class="form-control" id="modello_30">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 12: Modello 30F -->
+    <div class="mb-4">
+        <h4>Modello 30F</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_30F" class="form-label">Modello 30F</label>
+                    <input type="text" class="form-control" id="modello_30F">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 13: Modello Diritti Allevatoriali -->
+    <div class="mb-4">
+        <h4>Modello Diritti Allevatoriali</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_DirittiAllevatoriali" class="form-label">Modello Diritti Allevatoriali</label>
+                    <input type="text" class="form-control" id="modello_DirittiAllevatoriali">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 14: Modello Export Certificate -->
+    <div class="mb-4">
+        <h4>Modello Export Certificate</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_ExportCertificate" class="form-label">Modello Export Certificate</label>
+                    <input type="text" class="form-control" id="modello_ExportCertificate">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 15: Modello 9B -->
+    <div class="mb-4">
+        <h4>Modello 9B</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_9B" class="form-label">Modello 9B</label>
+                    <input type="text" class="form-control" id="modello_9B">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 16: Modello DNA -->
+    <div class="mb-4">
+        <h4>Modello DNA</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_DNA" class="form-label">Modello DNA</label>
+                    <input type="text" class="form-control" id="modello_DNA">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 17: Modello Accertamento Parentela Importato -->
+    <div class="mb-4">
+        <h4>Modello Accertamento Parentela Importato</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_AccertamentoParentela_Importato" class="form-label">Modello Accertamento Parentela Importato</label>
+                    <input type="text" class="form-control" id="modello_AccertamentoParentela_Importato">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 18: Modello Passaporto Estero -->
+    <div class="mb-4">
+        <h4>Modello Passaporto Estero</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_PassaportoEstero" class="form-label">Modello Passaporto Estero</label>
+                    <input type="text" class="form-control" id="modello_PassaportoEstero">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 19: Modello Provenienza -->
+    <div class="mb-4">
+        <h4>Modello Provenienza</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_Provenienza" class="form-label">Modello Provenienza</label>
+                    <input type="text" class="form-control" id="modello_Provenienza">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 20: Modello Pedigree -->
+    <div class="mb-4">
+        <h4>Modello Pedigree</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_Pedigree" class="form-label">Modello Pedigree</label>
+                    <input type="text" class="form-control" id="modello_Pedigree">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 21: Modello Morte -->
+    <div class="mb-4">
+        <h4>Modello Morte</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_Morte" class="form-label">Modello Morte</label>
+                    <input type="text" class="form-control" id="modello_Morte">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 22: Modello CIE -->
+    <div class="mb-4">
+        <h4>Modello CIE</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_CIE" class="form-label">Modello CIE</label>
+                    <input type="text" class="form-control" id="modello_CIE">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 23: Modello CIEF -->
+    <div class="mb-4">
+        <h4>Modello CIEF</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_CIEF" class="form-label">Modello CIEF</label>
+                    <input type="text" class="form-control" id="modello_CIEF">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 24: Modello Breeding Card -->
+    <div class="mb-4">
+        <h4>Modello Breeding Card</h4>
+        <div class="section-content">
+            <form id="documentInfoForm3">
+                <div class="mb-3">
+                    <label for="modello_BreedingCard" class="form-label">Modello Breeding Card</label>
+                    <input type="text" class="form-control" id="modello_BreedingCard">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button type="submit" id="saveButton" class="btn btn-primary">Save All</button>
+</div>
+
+
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="toggleSlidingDiv()"></div>
+
+<!-- Overlay -->
+    <!-- jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="main.js"></script>
+    <script src="Slider.js"></script>
+    <script src="SaveorUpdate.js"></script>
+</body>
+</html>
